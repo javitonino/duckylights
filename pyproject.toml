@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "duckylights"
+version = "0.1.0"
+description = ""
+authors = ["Javier Torres <javier@javiertorres.eu>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyudev = "^0.21.0"
+
+
+[tool.poetry.dev-dependencies]
+dbus-python = "^1.2"
+pygi = "^1.0"
+pygobject = "^3.34"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
