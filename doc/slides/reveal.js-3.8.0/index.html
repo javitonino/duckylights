@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+					<section>
+							<h1>a</h1>
+							<div style='border: 1px solid white; background-image: "img/ducky.png"'>b</div>
+							<ul>
+								<li>a</li>
+								<li>a</li>
+								<li>a</li>
+							</ul>
+						</section>
+				<section>Title</section>
+				<section data-background-video="blank"></section>
+				<section data-background-iframe="http://localhost:8888/notebooks/doc/protocol/Ducky%20Protocol%20Analysis.ipynb?token=7821b1d241334feea82c48fc0de2de93889d1b89ce3d8874" data-background-interactive></section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+
+			Reveal.addEventListener( 'ready', function( event ) {
+
+			var video = document.querySelector("video");
+
+				if (navigator.mediaDevices.getUserMedia) {
+					navigator.mediaDevices.getUserMedia({ video: { height: 1080 } })
+					.then(function (stream) {
+						console.log(stream);
+						video.srcObject = stream;
+						video.play();
+					})
+					.catch(function (err0r) {
+						console.log("Something went wrong!", err0r);
+					});
+			}
+
+			} );
+		</script>
+	</body>
+</html>
